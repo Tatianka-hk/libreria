@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const AuthController = require('../autocontrollers/Book')
-const {validateToken} =require('../middleware/auth')
-router.get('/get', validateToken, AuthController.get_books)
-router.post('/add', AuthController.add_book)
-router.get('/edit/:id',validateToken, AuthController.get_book)
-router.post('/edit/:id', AuthController.edit_book)
+const AuthController = require('../autocontrollers/Book');
+const { validateToken } = require('../middleware/auth');
+router.get('/get', validateToken, AuthController.getBooks);
+router.post('/add', validateToken, AuthController.addBbook);
+router.get('/get/:id', validateToken, AuthController.getBook);
+router.put('/edit/:id', validateToken, AuthController.editBook);
+router.delete('/delete/:id', validateToken, AuthController.deleteBook);
 module.exports = router;
