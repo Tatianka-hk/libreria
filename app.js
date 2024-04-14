@@ -12,11 +12,12 @@ app.use(express.json())
 const Authrouter = require('./routes/auth')
 const Bookrouter = require('./routes/book')
 const Userrouter = require('./routes/user')
+const Emailrouter = require('./routes/email');
 
 app.use('/auth', Authrouter)
 app.use('/books', Bookrouter)
 app.use('/user', Userrouter)
-
+app.use('/email', Emailrouter)
 app.listen(PORT, (error) => {
   error ? console.log(error) : console.log(`listening port ${PORT}`)
 })
